@@ -47,6 +47,7 @@ public class Register extends AppCompatActivity {
 
                     } else {
                         repo.addUser(ime, sifra, jmbg);
+                        //prebaciti da ovo vodi na login
                         changeActivity();
                     }
                 }
@@ -54,7 +55,7 @@ public class Register extends AppCompatActivity {
         });
     }
     private void changeActivity(){
-        Intent i = new Intent(this, HomePage.class);
+        Intent i = new Intent(this, MainActivity.class);
 
         //i.putExtra("message", msg);
 //        Bundle extras = new Bundle();

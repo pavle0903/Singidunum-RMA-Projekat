@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //repo.addUser("Pavle", "123pavle", "12345");
 
 
 
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         EditText sifra1 = findViewById(R.id.loginPassword);
         String ime = ime1.getText().toString();
         String sifra = sifra1.getText().toString();
+        Boolean ulogovan = false;
 
 
         if (ime.equals("")) {
@@ -79,21 +81,24 @@ public class MainActivity extends AppCompatActivity {
 
         for (Users u : users) {
             if (u.getUsername().equals(ime) && u.getPassword().equals(sifra)) {
+                ulogovan = true;
                 Intent i = new Intent(this, HomePage.class);
-
+                String jmbg = u.getJmbg();
                 //i.putExtra("message", msg);
                 Bundle extras = new Bundle();
-                extras.putString("message", ime);
+                extras.putString("ime", ime);
+                extras.putString("jmbg", jmbg);
 
                 i.putExtras(extras);
                 startActivity(i);
                 finish();
 
-            } else {
-                Toast toast = Toast.makeText(getApplicationContext(), "Uneti podaci nisu pronadjeni!", Toast.LENGTH_LONG);
-                toast.show();
-                System.out.println("Pogresni podaci!");
             }
+        if (ulogovan == false) {
+            Toast toast = Toast.makeText(getApplicationContext(), "Uneti podaci nisu pronadjeni!", Toast.LENGTH_LONG);
+            toast.show();
+            System.out.println("Pogresni podaci!");
+        }
         }
     }
 }
