@@ -1,9 +1,12 @@
 package com.example.universityproject;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -13,6 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -62,7 +66,7 @@ public class Predsednicki extends AppCompatActivity {
 
     private void getRequest(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.0.101:5000/json";
+        String url = "http://192.168.1.139:5000/json";
 
 
 
@@ -105,7 +109,7 @@ public class Predsednicki extends AppCompatActivity {
     //dodaje u listu tj json, omoguciti da admin moze dodavati nove predsednike
     private void postRequest(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.0.101:5000/add";
+        String url = "http://192.168.1.139:5000/add";
 
         PredsednikKandidati example = new PredsednikKandidati(15, "Pavle", "Sarenac", "aaaaaaaaaaaaa");
         JSONObject object = PredsednikKandidati.toJson(example);
@@ -132,18 +136,42 @@ public class Predsednicki extends AppCompatActivity {
         };
         queue.add(request);
     }
+    private void styleView(View v, int c){ v.setBackgroundColor(c);}
+
+    private void detaljnoPredsednik(String ID){
+        Intent i = new Intent(this, DetaljnoPredsednik.class);
+
+        //String id =String.valueOf(ID);
+
+        Bundle extras = new Bundle();
+        extras.putString("id", ID);
+
+        i.putExtras(extras);
+        startActivity(i);
+        finish();
+    }
+
     private void fillDataView(PredsednikKandidati r, View v) {
         TextView predsednikIme = v.findViewById(R.id.viewIme);
         TextView predsednikPrezime = v.findViewById(R.id.viewPrezime);
-        TextView predsednikDetalji = v.findViewById(R.id.viewDetalji);
+        //TextView predsednikDetalji = v.findViewById(R.id.viewDetalji);
         ImageView img = v.findViewById(R.id.viewSlika);
+        int ID = r.getId();
 
-        String imageUri = "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/ieHreOCQHZnA/v1/1000x-1.jpg";
-        Picasso.get().load(imageUri).into(img);
+
+
+        String imageUri = "https://classroommagazines.scholastic.com/content/dam/classroom-magazines/magazines/election/election-2020/meet-the-candidates/joe-biden/election-mtc-biden-tablet.png";
+        Picasso.get().load(imageUri).resize(200, 250).into(img);
         predsednikIme.setText(r.getIme());
         predsednikPrezime.setText(r.getPrezime());
-        predsednikDetalji.setText("Ovde ce biti detalji od kandidatu. \n READ MORE");
-        //predsednikDetalji.setText(r.getDetalji());
+
+        Button det = v.findViewById(R.id.buttonDetalji);
+        det.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String id =String.valueOf(ID);
+                detaljnoPredsednik(id);
+            }
+        });
 
         mainLayout.addView(v);
 
@@ -156,6 +184,10 @@ public class Predsednicki extends AppCompatActivity {
             View v = inflater.inflate(R.layout.predsednik_detalji, mainLayout, false);
 
             fillDataView(r, v);
+            int colorValue = 0;
+            colorValue = Color.rgb(234, 234, 234);
+            //colorValue = Color.GRAY;
+            styleView(v, colorValue);
 
         }
     }
