@@ -146,7 +146,7 @@ public class Predsednicki extends AppCompatActivity {
         //predsednikDetalji.setText(r.getDetalji());
 
         mainLayout.addView(v);
-        //bookTitle.setMovementMethod(new ScrollingMovementMethod());
+        
     }
 
     private void generateData(){
