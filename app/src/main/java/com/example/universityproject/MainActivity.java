@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //repo.addUser("Pavle", "123pavle", "12345");
+        repo.addUser("Pavle", "123pavle", "12345");
 
 
 
@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
 
         //ArrayList<Users> users = new ArrayList<Users>();
         users = repo.getAllUsers();
+//        if (users.isEmpty()){
+//            repo.addUser("Pavle", "123pavle", "12345");
+//        }else{
+//            System.out.println("Sve ok");
+//        }
 
 
 
