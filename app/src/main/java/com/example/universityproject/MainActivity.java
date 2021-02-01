@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        repo.addUser("Pavle", "123pavle", "12345");
 
 
 
@@ -90,20 +89,29 @@ public class MainActivity extends AppCompatActivity {
                 Intent i = new Intent(this, HomePage.class);
                 String jmbg = u.getJmbg();
                 //i.putExtra("message", msg);
+
+                String pred_glas = u.getPred_glas();
+                System.out.println(pred_glas + "ovo je pred glas na loginu");
+                String parl_glas = u.getParl_glas();
                 Bundle extras = new Bundle();
                 extras.putString("ime", ime);
                 extras.putString("jmbg", jmbg);
+                extras.putString("sifra", sifra);
+                extras.putString("pred_glas", pred_glas);
+                extras.putString("parl_glas", parl_glas);
+
 
                 i.putExtras(extras);
                 startActivity(i);
                 finish();
 
             }
+        }
         if (ulogovan == false) {
             Toast toast = Toast.makeText(getApplicationContext(), "Uneti podaci nisu pronadjeni!", Toast.LENGTH_LONG);
             toast.show();
             System.out.println("Pogresni podaci!");
         }
-        }
+
     }
 }

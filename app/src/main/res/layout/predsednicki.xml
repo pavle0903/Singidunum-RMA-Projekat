@@ -22,21 +22,16 @@
             android:orientation="vertical" />
     </ScrollView>
 
-    <com.google.android.material.tabs.TabLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="9dp"
+    <Button
+        android:id="@+id/meniButton"
+        android:layout_width="420dp"
+        android:layout_height="70dp"
+        android:paddingTop="16dp"
+        android:text="POVRATAK NA MENI"
+        android:textColor="#E33C17"
+        app:backgroundTint="#FFFFFF"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222">
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabItem"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="POVRATAK NA MENI" />
-    </com.google.android.material.tabs.TabLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

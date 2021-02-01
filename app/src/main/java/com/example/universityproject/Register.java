@@ -18,6 +18,8 @@ public class Register extends AppCompatActivity {
     Database db = new Database(this);
     UsersRepository repo = new UsersRepository(db);
     ArrayList<Users> users = new ArrayList<Users>();
+    Boolean pronadjen = false;
+    Users user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.registracija);
 
         users = repo.getAllUsers();
+        if (users.isEmpty()){
+            pronadjen = true;
+        }
 
         Button registruj = findViewById(R.id.registrujSe);
 
@@ -38,6 +43,7 @@ public class Register extends AppCompatActivity {
                 TextView jmbgLabel = findViewById(R.id.registracijaJmbg);
                 String jmbg = jmbgLabel.getText().toString();
 
+
                 for (Users u : users) {
                     System.out.println(jmbg + " aaaaaa" + u.getJmbg());
                     if (u.getJmbg().equals(jmbg)) {
@@ -46,10 +52,25 @@ public class Register extends AppCompatActivity {
                         break;
 
                     } else {
-                        repo.addUser(ime, sifra, jmbg);
+                       // int glas = 0;
+                        user = new Users(ime, sifra, jmbg, "Nije", "Nije");
+                        repo.addUser(ime, sifra, jmbg, "Nije", "Nije");
                         //prebaciti da ovo vodi na login
                         changeActivity();
                     }
+                }
+                if(pronadjen == true){
+                   //int glas = 0;
+
+                    user = new Users();
+                    user.setPred_glas("Nije");
+                    user.setParl_glas("Nije");
+                    user.setUsername(ime);
+                    user.setPassword(sifra);
+                    user.setJmbg(jmbg);
+                    repo.addUser(ime, sifra, jmbg, "Nije", "Nije");
+                    //prebaciti da ovo vodi na login
+                    changeActivity();
                 }
             }
         });

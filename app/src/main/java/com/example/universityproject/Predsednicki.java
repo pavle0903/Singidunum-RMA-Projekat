@@ -1,5 +1,6 @@
 package com.example.universityproject;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -27,6 +28,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.material.tabs.TabItem;
+import com.google.android.material.tabs.TabLayout;
 import com.squareup.picasso.Picasso;
 
 public class Predsednicki extends AppCompatActivity {
@@ -35,16 +38,51 @@ public class Predsednicki extends AppCompatActivity {
     TextView t2;
     ArrayList<PredsednikKandidati> estates;
     LinearLayout mainLayout;
+    Database db;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.predsednicki);
+        String jmbg = getIntent().getStringExtra("jmbg");
+        db = new Database(this);
+        UsersRepository repo = new UsersRepository(db);
        // t = findViewById(R.id.textView7);
        // t2 = findViewById(R.id.viewIme);
         //t = findViewById(R.id.textView2);
-
+        Button tabi = findViewById(R.id.meniButton);
+        tabi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                home(repo);
+            }
+        });
         getRequest();
+//        TabLayout tabs = findViewById(R.id.tabLayout);
+//        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                switch (tab.getText().toString()){
+//                    case "POVRATAK NA MENI":
+//                        System.out.println("LOGOUUUUUUUUUUUUUT");
+//                        home(repo);
+//                        break;
+//                }
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
+        //TabsManager(repo);
 //        Button get = findViewById(R.id.getButton);
 //        get.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -61,12 +99,11 @@ public class Predsednicki extends AppCompatActivity {
 //            }
 //        });
 
-
     }
 
     private void getRequest(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.1.139:5000/json";
+        String url = "http://192.168.0.118:5000/json";
 
 
 
@@ -109,7 +146,7 @@ public class Predsednicki extends AppCompatActivity {
     //dodaje u listu tj json, omoguciti da admin moze dodavati nove predsednike
     private void postRequest(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.1.139:5000/add";
+        String url = "http://192.168.0.118:5000/add";
 
         PredsednikKandidati example = new PredsednikKandidati(15, "Pavle", "Sarenac", "aaaaaaaaaaaaa");
         JSONObject object = PredsednikKandidati.toJson(example);
@@ -138,6 +175,68 @@ public class Predsednicki extends AppCompatActivity {
     }
     private void styleView(View v, int c){ v.setBackgroundColor(c);}
 
+//    private void TabsManager(UsersRepository repo) {
+//        TabLayout tabs = findViewById(R.id.tabLayout);
+//        tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                switch (tab.getPosition()){
+//                    case 0:
+//                        System.out.println("logoutlogoutlogout");
+//                        logout();
+//
+//                    case 1:
+//                        home(repo);
+//                        break;
+//                }
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
+//    }
+
+    private void home(UsersRepository repo){
+        Intent i = new Intent(this, HomePage.class);
+
+
+        Bundle extras = new Bundle();
+        String ime = getIntent().getStringExtra("ime");
+        String jmbg = getIntent().getStringExtra("jmbg");
+        extras.putString("ime", ime);
+        extras.putString("jmbg", jmbg);
+        String sifra = getIntent().getStringExtra("sifra");
+        //String pred_glas = getIntent().getStringExtra("pred_glas");
+        String parl_glas = getIntent().getStringExtra("parl_glas");
+        extras.putString("sifra", sifra);
+        ArrayList<Users> users = new ArrayList<Users>();
+        users = repo.getAllUsers();
+        for(Users u : users){
+            if (u.getPred_glas().equals("Jeste")){
+                String glas = u.getPred_glas();
+                extras.putString("pred_glas", glas);
+            }
+            else{
+                String pred_glas = getIntent().getStringExtra("pred_glas");
+                extras.putString("pred_glas", pred_glas);
+            }
+        }
+
+        //extras.putString("pred_glas", glas);
+        extras.putString("parl_glas", parl_glas);
+        i.putExtras(extras);
+        startActivity(i);
+        finish();
+    }
+
+
     private void detaljnoPredsednik(String ID){
         Intent i = new Intent(this, DetaljnoPredsednik.class);
 
@@ -160,6 +259,7 @@ public class Predsednicki extends AppCompatActivity {
 
 
 
+
         String imageUri = "https://classroommagazines.scholastic.com/content/dam/classroom-magazines/magazines/election/election-2020/meet-the-candidates/joe-biden/election-mtc-biden-tablet.png";
         Picasso.get().load(imageUri).resize(200, 250).into(img);
         predsednikIme.setText(r.getIme());
@@ -170,6 +270,23 @@ public class Predsednicki extends AppCompatActivity {
             public void onClick(View v) {
                 String id =String.valueOf(ID);
                 detaljnoPredsednik(id);
+            }
+        });
+
+        Button vote = v.findViewById(R.id.buttonGlasaj);
+        vote.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String ime = getIntent().getStringExtra("ime");
+                String jmbg = getIntent().getStringExtra("jmbg");
+                String sifra = getIntent().getStringExtra("sifra");
+                ContentValues cv = new ContentValues();
+                cv.put(Users.FIELD_USERNAME, ime);
+                cv.put(Users.FIELD_PASSWORD, sifra);
+                cv.put(Users.FIEDL_JMBG, jmbg);
+                cv.put(Users.FIELD_PRED_GLASAO, "Jeste");
+                cv.put(Users.FIELD_PARL_GLASAO, "Nije");
+                db.update_predsednicke(cv, jmbg);
             }
         });
 

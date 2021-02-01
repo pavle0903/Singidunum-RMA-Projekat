@@ -82,14 +82,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.79" />
 
-    <TextView
-        android:id="@+id/copyRightView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CopyRight VRS - 2021."
+    <Button
+        android:id="@+id/odjavaButton"
+        android:layout_width="405dp"
+        android:layout_height="71dp"
+        android:text="ODJAVA"
+        app:backgroundTint="#E33C17"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

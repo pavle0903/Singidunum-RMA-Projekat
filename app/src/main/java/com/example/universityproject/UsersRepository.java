@@ -14,7 +14,7 @@ public class UsersRepository {
         this.database = db;
     }
 
-    public void addUser(String username, String password, String jmbg){
+    public void addUser(String username, String password, String jmbg, String pred_glasao, String parl_glasao){
         SQLiteDatabase db = database.getWritableDatabase();
         //da bismo uneli podatke u bazu, treba nam skup vrednosti, ContentValues
         ContentValues cv = new ContentValues();
@@ -22,6 +22,8 @@ public class UsersRepository {
         cv.put(Users.FIELD_USERNAME, username);
         cv.put(Users.FIELD_PASSWORD, password);
         cv.put(Users.FIEDL_JMBG, jmbg);
+        cv.put(Users.FIELD_PRED_GLASAO, pred_glasao);
+        cv.put(Users.FIELD_PARL_GLASAO, parl_glasao);
         //radimo insert ovog skupa podataka
         db.insert(Users.TABLE_NAME, null, cv);
     }
@@ -59,11 +61,15 @@ public class UsersRepository {
             String username = result.getString(result.getColumnIndex(Users.FIELD_USERNAME));
             String password = result.getString(result.getColumnIndex(Users.FIELD_PASSWORD));
             String jmbg = result.getString(result.getColumnIndex(Users.FIEDL_JMBG));
+            String pred_glasao = result.getString(result.getColumnIndex(Users.FIELD_PRED_GLASAO));
+            String parl_glasao = result.getString(result.getColumnIndex(Users.FIELD_PARL_GLASAO));
 
             Users newUser= new Users();
             newUser.setUsername(username);
             newUser.setPassword(password);
             newUser.setJmbg(jmbg);
+            newUser.setPred_glas(pred_glasao);
+            newUser.setParl_glas(parl_glasao);
             list.add(newUser);
             result.moveToNext();
         }
@@ -71,4 +77,6 @@ public class UsersRepository {
         return list;
 
     }
+
+
 }
