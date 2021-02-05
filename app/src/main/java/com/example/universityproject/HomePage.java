@@ -4,13 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.w3c.dom.Text;
 
 public class HomePage extends AppCompatActivity {
 
@@ -27,7 +23,7 @@ public class HomePage extends AppCompatActivity {
 
         Button predsednicki = findViewById(R.id.predsednickiButton);
         Button parlamentarni = findViewById(R.id.parlamentarniButton);
-        Button lokalni = findViewById(R.id.lokalniButton);
+        Button rezultati = findViewById(R.id.rezultatiButton);
         //predsednicki.setVisibility(View.GONE);
 //        int pred_glasao = getIntent().getIntExtra("pred_glas", 0);
 //        int parl_glasao = getIntent().getIntExtra("parl_glas", 0);
@@ -55,10 +51,10 @@ public class HomePage extends AppCompatActivity {
                 parlamentarniPrikaz();
             }
         });
-        lokalni.setOnClickListener(new View.OnClickListener() {
+        rezultati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                lokalniPrikaz();
+                rezultatiPrikaz();
             }
         });
 
@@ -113,8 +109,8 @@ public class HomePage extends AppCompatActivity {
         finish();
     }
 
-    private void lokalniPrikaz(){
-        Intent i = new Intent(this, Lokalni.class);
+    private void rezultatiPrikaz(){
+        Intent i = new Intent(this, Rezultati.class);
 
 
         Bundle extras = new Bundle();

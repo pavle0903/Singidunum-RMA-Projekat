@@ -28,6 +28,7 @@ public class UsersRepository {
         db.insert(Users.TABLE_NAME, null, cv);
     }
 
+
     public Users getByUsername(String username){
         SQLiteDatabase db = database.getReadableDatabase();
 

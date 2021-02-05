@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         //ArrayList<Users> users = new ArrayList<Users>();
         users = repo.getAllUsers();
+
 //        if (users.isEmpty()){
 //            repo.addUser("Pavle", "123pavle", "12345");
 //        }else{

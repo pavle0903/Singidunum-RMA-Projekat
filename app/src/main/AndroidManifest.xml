@@ -54,7 +54,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Lokalni">
+        <activity android:name=".Rezultati">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

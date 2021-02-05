@@ -1,0 +1,38 @@
+[
+    {
+        "id": "0",
+        "ime": "Joseph Biden",
+        "prezime": "Biden",
+        "detalji": "Dzozef Robinet Dzo Bajden mladji je 46. predsjednik SAD. On je od 2009. do 2017. vrsio duznost potpredsednika SAD. Pre toga je od 1973. kao senator zastupao drzavu Delaver. Na tom mestu je tokom svoje duge karijere stekao veliki ugled i uticaj, kao i brojna prestizna imenovanja, medju kojima se isticu predsednistvo nad senatskim odborima za pravosudje i spoljnu politiku. Igrao je vaznu ulogu u kontroverznom procesu potvrdjivanja kandidature Roberta Borka i Klarensa Tomasa za Vrhovni sud. Godine 1991. se istakao kao jedan od vodja kongresne opozicije predsedniku Busu Starijem i njegovim planovima za rat protiv Iraka. Jedanaest godina kasnije je, medjutim, kao i vecina njegovih stranackih kolega podrzao senatsku rezoluciju temeljem koje je Bus Mladji pokrenuo invaziju Iraka. Bajden se dva puta pokusao izboriti za mesto predsednika - 1988. i 2008. - ali je od kandidature odustao jos u ranim fazama demokratskih predizbora.",
+        "slika": "https://classroommagazines.scholastic.com/content/dam/classroom-magazines/magazines/election/election-2020/meet-the-candidates/joe-biden/election-mtc-biden-tablet.png",
+        "datumRodjenja": "20.11.1942.",
+        "mandata": "0",
+        "stranka": "Demokratska",
+        "glasova": 0,
+        "potpredsednik": "Kamala Harris"
+    },
+    {
+        "id": "1",
+        "ime": "Donald Trump",
+        "prezime": "Trump",
+        "detalji": "Donald Dzon Tramp americki je politicar, i bivsi 45. predsednik Sjedinjenih Americkih Drzava od 2017. do 2021. godine. Pre nego sto je usao u politiku bio je poslovni covek i televizijska licnost. Tramp je nekoliko puta pokusao da bude nominovan za predsednika i bio je clan Demokratske i Reformisticke stranke. Iako je bio u trci za nominaciju Reformisticke stranke na primarnim izborima 2000. godine, povukao se pre pocetka glasanja. Svoju kandidaturu za predsednika na izborima 2016. najavio je u junu 2015. kao kandidat Republikanske stranke, ciji je clan od 2012. godine. Nakon ubedljive pobede na unutarstranackim izborima, Tramp je odneo pobedu i na predsednickim izborima odrzanim 8. novembra 2016. godine, pobedivsi protivkandidatkinju iz Demokratske stranke, Hilari Klinton, iako je osvojila 2,8 miliona vise ukupnih glasova na nacionalnom nivou od Trampa. Tramp je dobio 304 elektorska glasa naspram 227 koje je dobila Hilari Klinton, cime je i zvanicno izabran za 45. predsednika SAD.",
+        "slika": "https://classroommagazines.scholastic.com/content/dam/classroom-magazines/magazines/election/election-2020/meet-the-candidates/donald-trump/election-mtc-trump-desktop.png",
+        "datumRodjenja": "14.6.1946.",
+        "mandata": "1",
+        "stranka": "Republikanska",
+        "glasova": 1,
+        "potpredsednik": "Mike Carrey"
+    },
+    {
+        "id": "2",
+        "ime": "Barack Obama",
+        "prezime": "Obama",
+        "detalji": "Barak Husejin Obama II (engl. Barack Hussein Obama II, IPA: /b\u0259.\u02c8r\u0251\u02d0k hu\u02d0.\u02c8se\u026an o\u028a.\u02c8b\u0251\u02d0.m\u0259/; Honolulu, 4. avgust 1961) bivsi je americki predsednik, izabran na izborima 2008, odnosno 2012, na predsednickoj funkciji bio je do januara 2017. godine. clan je Demokratske stranke. Od 2005. do 2008. godine bio je juniorski senator iz Ilinoisa. Rodjen je u Honoluluu na Havajima, kao dete Kenijca i Amerikanke. Odrastao je na razlicitim mestima. Veci deo svog detinjstva proveo je na Havajima, a cetiri godine u mladosti je proveo u Indoneziji. Diplomirao je politicke nauke na univerzitetu Kolumbija, a zvanje diplomiranog pravnika (J.D.) stekao je na Harvardu. Pre nego sto je postao senator u senatu drzave Ilinois (izmedju 1997. i 2004. godine), bavio se drustvenim radom i advokaturom, u oblasti gradjanskih prava. Svoju kampanju za ulazak u americki senat je poceo 2003. godine. Na izborima je pobedio republikanca Alana Kiza, takodje afroamerikanca sa velikom vecinom od 70% glasova. U toku predsednicke kampanje, Obama je obecao, da ce u slucaju njegove pobede na izborima doci do znacajnih promena u Vasingtonu i da ce mu jedan od prioriteta biti povlacenje americkih trupa iz Iraka. Obama je poznat po \u201eteroristickom utorku\u201d, kada se na sastanku nacionalne bezbednosti dogovara ko treba da bude likvidiran sa tajnog spiska.",
+        "slika": "https://classroommagazines.scholastic.com/content/dam/classroom-magazines/magazines/election/election-2020/meet-the-candidates/donald-trump/election-mtc-trump-desktop.png",
+        "datumRodjenja": "4.8.1961.",
+        "mandata": "1",
+        "stranka": "Narodna",
+        "glasova": 0,
+        "potpredsednik": "Joe Biden"
+    }
+]

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -71,10 +70,10 @@
         app:layout_constraintVertical_bias="0.593" />
 
     <Button
-        android:id="@+id/lokalniButton"
+        android:id="@+id/rezultatiButton"
         android:layout_width="254dp"
         android:layout_height="86dp"
-        android:text="LOKALNI IZBORI"
+        android:text="REZULTATI IZBORA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -86,12 +85,11 @@
         android:id="@+id/odjavaButton"
         android:layout_width="405dp"
         android:layout_height="71dp"
+        android:layout_marginTop="656dp"
         android:text="ODJAVA"
         app:backgroundTint="#E33C17"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

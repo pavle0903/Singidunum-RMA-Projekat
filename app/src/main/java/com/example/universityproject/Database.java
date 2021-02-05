@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class Database extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="baza.sqlite";
+
     public Database(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -24,6 +25,7 @@ public class Database extends SQLiteOpenHelper {
                 Users.TABLE_NAME, Users.FIEDL_JMBG, Users.FIELD_USERNAME, Users.FIELD_PASSWORD, Users.FIELD_PRED_GLASAO, Users.FIELD_PARL_GLASAO);
 
         db.execSQL(SQL);
+
     }
 
     @Override
@@ -45,6 +47,7 @@ public class Database extends SQLiteOpenHelper {
 //        String strSQL = "UPDATE users SET pred_glasao = novi WHERE jmbg = "+ jmbg;
 //        db.execSQL(strSQL);
     }
+
 
 //    public void get_predsednicke(String jmbg){
 //        SQLiteDatabase db = this.getWritableDatabase();
